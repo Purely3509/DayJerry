@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tb"
+version = "0.1.0"
+description = "Todoist Snapshot + Context Pack CLI"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Todoist Snapshot CLI" }
+]
+dependencies = [
+  "httpx>=0.25",
+  "pydantic>=2.4",
+  "typer>=0.9",
+  "rich>=13.6",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.4"]
+
+[project.scripts]
+tb = "tb.cli:app"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
